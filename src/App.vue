@@ -1,51 +1,58 @@
 <template>
   <div id="app">
+    <Top></Top>
     <el-menu
-      :default-active="activeIndex2"
+      :default-active="activeIndex"
+      router
       class="el-menu-demo"
       mode="horizontal"
-      @select="handleSelect"
-      background-color="#545c64"
-      text-color="#fff"
-      active-text-color="#ffd04b">
-      <el-menu-item index="1">处理中心</el-menu-item>
-      <el-submenu index="2">
-        <template slot="title">我的工作台</template>
-        <el-menu-item index="2-1">选项1</el-menu-item>
-        <el-menu-item index="2-2">选项2</el-menu-item>
-        <el-menu-item index="2-3">选项3</el-menu-item>
-        <el-submenu index="2-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="2-4-1">选项1</el-menu-item>
-          <el-menu-item index="2-4-2">选项2</el-menu-item>
-          <el-menu-item index="2-4-3">选项3</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-menu-item index="3" disabled>消息中心</el-menu-item>
-      <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+      background-color="##ffffff"
+      text-color="#222222"
+      active-text-color="#e01109"
+      style="display: flex;justify-content: center;width:70%;margin: 0 auto;"
+    >
+      <el-menu-item index="/">网站首页</el-menu-item>
+      <el-menu-item index="/flag">随言碎语</el-menu-item>
+      <el-menu-item index="/blog">博客日记</el-menu-item>
+      <el-menu-item index="/picture">我的相册</el-menu-item>
+      <el-menu-item index="/time">时间轴</el-menu-item>
+      <el-menu-item index="/about">关于博主</el-menu-item>
+      <el-menu-item index="/sysy">留言</el-menu-item>
     </el-menu>
-    <router-view/>
+    <div style="width: 70%;margin: 20px auto;">
+      <router-view/>
+    </div>
+    <Bottom></Bottom>
   </div>
 </template>
 
 <script>
+  import Top from "./components/Top";
+  import Bottom from "./components/Bottom";
 export default {
   name: 'App',
+  components:{
+    Top,
+    Bottom
+  },
   data() {
     return {
-      activeIndex: '1',
-      activeIndex2: '1'
+      activeIndex: '',
     };
   },
   methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    }
+
   }
 }
 </script>
 
 <style>
 #app {
+  background: #ebecf0;
+  display: flex;
+  overflow: auto;
+  flex-direction: column;
+  height: 100%;
 }
+
 </style>
