@@ -1,6 +1,6 @@
 <template>
   <div class="top">
-    <img src="@/assets/me.jpg">
+  
     <div class="left">
       <span class="name">slim</span>
       <span class="tell">一个人爱前端的菜鸡</span>
